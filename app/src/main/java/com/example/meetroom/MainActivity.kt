@@ -36,11 +36,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textCurrentRemaining: TextView
     private lateinit var textCurrentReserver: TextView
     private lateinit var textCurrentDepartment: TextView
+    private lateinit var textCurrentTopic: TextView
     private lateinit var textNextStatus: TextView
     private lateinit var textNextTime: TextView
     private lateinit var textNextMinutes: TextView
     private lateinit var textNextReserver: TextView
     private lateinit var textNextDepartment: TextView
+    private lateinit var textNextTopic: TextView
     private lateinit var textScheduleCount: TextView
     private lateinit var recyclerMeetingList: RecyclerView
     private lateinit var meetingListAdapter: MeetingListAdapter
@@ -107,12 +109,14 @@ class MainActivity : AppCompatActivity() {
         textCurrentRemaining = findViewById(R.id.text_current_remaining)
         textCurrentReserver = findViewById(R.id.text_current_reserver)
         textCurrentDepartment = findViewById(R.id.text_current_department)
+        textCurrentTopic = findViewById(R.id.text_current_topic)
 
         textNextStatus = findViewById(R.id.text_next_status)
         textNextTime = findViewById(R.id.text_next_time)
         textNextMinutes = findViewById(R.id.text_next_minutes)
         textNextReserver = findViewById(R.id.text_next_reserver)
         textNextDepartment = findViewById(R.id.text_next_department)
+        textNextTopic = findViewById(R.id.text_next_topic)
     }
 
     private fun setupRecyclerView() {
@@ -201,6 +205,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateCurrentMeetingUI(meeting: RoomReservation) {
         textCurrentStatus.text = meeting.reservationStatus
+        textCurrentTopic.text = meeting.eventTitle
         textCurrentTime.text = formatTimeRange(meeting.eventStartTime, meeting.eventEndTime)
         textCurrentReserver.text = "预订人: ${meeting.reserver}"
         textCurrentDepartment.text = meeting.departmentOfReserver
@@ -213,6 +218,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             "${minutes}分钟后有会议"
         }
+        textNextTopic.text = meeting.eventTitle
         textNextTime.text = formatTimeRange(meeting.eventStartTime, meeting.eventEndTime)
         textNextReserver.text = "预订人: ${meeting.reserver}"
         textNextDepartment.text = meeting.departmentOfReserver

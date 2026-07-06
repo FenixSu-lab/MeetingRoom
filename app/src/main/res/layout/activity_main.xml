@@ -140,6 +140,16 @@
                     android:textSize="68sp"
                     android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/text_current_topic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="会议主题"
+                    android:textColor="#FFE8F5E9"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
+
                 <LinearLayout
                     android:id="@+id/layout_current_details"
                     android:layout_width="match_parent"
@@ -238,15 +248,24 @@
                     android:layout_marginTop="12dp">
 
                     <TextView
-                        android:id="@+id/text_next_status"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="未来30分钟有会议"
-                        android:textColor="#FF81C784"
-                        android:textSize="44sp"
-                        android:textStyle="bold" />
+                    android:id="@+id/text_next_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="未来30分钟有会议"
+                    android:textColor="#FF81C784"
+                    android:textSize="44sp"
+                    android:textStyle="bold" />
 
-                    <LinearLayout
+                <TextView
+                    android:id="@+id/text_next_topic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="会议主题"
+                    android:textColor="#FFE8F5E9"
+                    android:textSize="28sp"
+                    android:layout_marginTop="8dp" />
+
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"

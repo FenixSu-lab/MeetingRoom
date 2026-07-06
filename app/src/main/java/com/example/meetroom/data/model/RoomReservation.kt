@@ -29,6 +29,8 @@ data class RoomReservation(
     val reservationStatus: String,
     @SerializedName("reserver")
     val reserver: String,
+    @SerializedName("event_title")
+    val eventTitle: String,
     @SerializedName("reserver_user_id")
     val reserverUserId: String,
     @SerializedName("room_check_in_status")

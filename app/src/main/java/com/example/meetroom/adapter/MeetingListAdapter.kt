@@ -31,6 +31,7 @@ class MeetingListAdapter : RecyclerView.Adapter<MeetingListAdapter.MeetingViewHo
 
     inner class MeetingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textStatus: TextView = itemView.findViewById(R.id.text_meeting_status)
+        private val textTopic: TextView = itemView.findViewById(R.id.text_meeting_topic)
         private val textTime: TextView = itemView.findViewById(R.id.text_meeting_time)
         private val textReserver: TextView = itemView.findViewById(R.id.text_meeting_reserver)
         private val textDepartment: TextView = itemView.findViewById(R.id.text_meeting_department)
@@ -38,6 +39,7 @@ class MeetingListAdapter : RecyclerView.Adapter<MeetingListAdapter.MeetingViewHo
 
         fun bind(meeting: RoomReservation) {
             textStatus.text = meeting.reservationStatus
+            textTopic.text = meeting.eventTitle
             textTime.text = formatTimeRange(meeting.eventStartTime, meeting.eventEndTime)
             textReserver.text = meeting.reserver
             textDepartment.text = meeting.departmentOfReserver
