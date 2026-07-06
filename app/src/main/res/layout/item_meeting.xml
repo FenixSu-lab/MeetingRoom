@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/meeting_item_bg"
+    android:layout_marginBottom="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <View
+            android:id="@+id/view_indicator"
+            android:layout_width="8dp"
+            android:layout_height="40dp"
+            android:background="#FF4CAF50"
+            android:layout_marginEnd="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_meeting_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="会议进行中"
+                android:textColor="#FFFFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_meeting_topic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="会议主题"
+                android:textColor="#FFE8F5E9"
+                android:textSize="18sp"
+                android:layout_marginTop="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:id="@+id/text_meeting_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="17:00 - 17:30"
+                    android:textColor="#FFE8F5E9"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/text_meeting_reserver"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="戴印丽"
+                    android:textColor="#FFA5D6A7"
+                    android:textSize="16sp"
+                    android:layout_marginStart="12dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_meeting_department"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="总经理办公室"
+                android:textColor="#FFB0C4DE"
+                android:textSize="14sp"
+                android:layout_marginTop="2dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

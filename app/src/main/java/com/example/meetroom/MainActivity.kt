@@ -10,6 +10,9 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.meetroom.adapter.MeetingListAdapter
 import com.example.meetroom.data.model.RoomReservation
 
 class MainActivity : AppCompatActivity() {
@@ -33,11 +36,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textCurrentRemaining: TextView
     private lateinit var textCurrentReserver: TextView
     private lateinit var textCurrentDepartment: TextView
+    private lateinit var textCurrentTopic: TextView
     private lateinit var textNextStatus: TextView
     private lateinit var textNextTime: TextView
     private lateinit var textNextMinutes: TextView
     private lateinit var textNextReserver: TextView
     private lateinit var textNextDepartment: TextView
+    private lateinit var textNextTopic: TextView
+    private lateinit var textScheduleCount: TextView
+    private lateinit var recyclerMeetingList: RecyclerView
+    private lateinit var meetingListAdapter: MeetingListAdapter
 
     private val timeHandler = Handler(Looper.getMainLooper())
     private val timeRunnable = object : Runnable {
@@ -56,6 +64,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(com.example.meetroom.viewmodel.RoomDisplayViewModel::class.java)
         bindViews()
+        setupRecyclerView()
         setupObservers()
         startTimeUpdate()
     }
@@ -93,17 +102,27 @@ class MainActivity : AppCompatActivity() {
         textNextEmptyStatus = findViewById(R.id.text_next_empty_status)
         textError = findViewById(R.id.text_error)
         progressLoading = findViewById(R.id.progress_loading)
+        textScheduleCount = findViewById(R.id.text_schedule_count)
+        recyclerMeetingList = findViewById(R.id.recycler_meeting_list)
 
         textCurrentTime = findViewById(R.id.text_current_time)
         textCurrentRemaining = findViewById(R.id.text_current_remaining)
         textCurrentReserver = findViewById(R.id.text_current_reserver)
         textCurrentDepartment = findViewById(R.id.text_current_department)
+        textCurrentTopic = findViewById(R.id.text_current_topic)
 
         textNextStatus = findViewById(R.id.text_next_status)
         textNextTime = findViewById(R.id.text_next_time)
         textNextMinutes = findViewById(R.id.text_next_minutes)
         textNextReserver = findViewById(R.id.text_next_reserver)
         textNextDepartment = findViewById(R.id.text_next_department)
+        textNextTopic = findViewById(R.id.text_next_topic)
+    }
+
+    private fun setupRecyclerView() {
+        meetingListAdapter = MeetingListAdapter()
+        recyclerMeetingList.layoutManager = LinearLayoutManager(this)
+        recyclerMeetingList.adapter = meetingListAdapter
     }
 
     private fun setupObservers() {
@@ -137,6 +156,11 @@ class MainActivity : AppCompatActivity() {
                 layoutNextDetails.visibility = View.GONE
                 textNextEmptyStatus.visibility = View.VISIBLE
             }
+        }
+
+        viewModel.meetingList.observe(this) { meetings ->
+            meetingListAdapter.setMeetings(meetings)
+            textScheduleCount.text = "共 ${meetings.size} 场会议"
         }
 
         viewModel.loading.observe(this) {
@@ -181,6 +205,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateCurrentMeetingUI(meeting: RoomReservation) {
         textCurrentStatus.text = meeting.reservationStatus
+        textCurrentTopic.text = meeting.eventTitle
         textCurrentTime.text = formatTimeRange(meeting.eventStartTime, meeting.eventEndTime)
         textCurrentReserver.text = "预订人: ${meeting.reserver}"
         textCurrentDepartment.text = meeting.departmentOfReserver
@@ -193,6 +218,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             "${minutes}分钟后有会议"
         }
+        textNextTopic.text = meeting.eventTitle
         textNextTime.text = formatTimeRange(meeting.eventStartTime, meeting.eventEndTime)
         textNextReserver.text = "预订人: ${meeting.reserver}"
         textNextDepartment.text = meeting.departmentOfReserver
