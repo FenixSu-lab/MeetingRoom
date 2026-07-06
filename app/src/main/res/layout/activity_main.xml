@@ -36,33 +36,6 @@
                 android:layout_marginEnd="12dp" />
 
             <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="会议室："
-                android:textColor="#FFFFFFFF"
-                android:textSize="48sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/text_room_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="会议室名称"
-                android:textColor="#FFFFFFFF"
-                android:textSize="48sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp">
-
-            <TextView
                 android:id="@+id/text_system_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -88,9 +61,26 @@
                 android:textSize="24sp"
                 android:layout_marginStart="16dp" />
 
+
+
         </LinearLayout>
 
-        <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:id="@+id/text_room_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="会议室名称"
+                android:textColor="#FFFFFFFF"
+                android:textSize="80sp"
+                android:textStyle="bold"/>
+
+            <TextView
             android:id="@+id/text_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -98,8 +88,9 @@
             android:textColor="#FFFFFFFF"
             android:textSize="80sp"
             android:textStyle="bold"
-            android:layout_marginTop="12dp" />
+            android:layout_marginStart="32dp"/>
 
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
