@@ -82,7 +82,8 @@ class RoomDisplayViewModel(application: Application) : AndroidViewModel(applicat
         result.onSuccess { response ->
             try {
                 if (response.data != null && response.data.data != null) {
-                    val reservations = response.data.data.roomReservationList ?: emptyList()
+                    var reservations = response.data.data.roomReservationList ?: emptyList()
+                    reservations = reservations.filter { it.isReleaseEarly == "-" }
                     _meetingList.postValue(reservations)
                     processMeetings(reservations)
                     _lastUpdateTime.postValue(getCurrentTime())
