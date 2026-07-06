@@ -92,212 +92,284 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_current_meeting_container"
+        android:id="@+id/layout_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="300dp"
-        android:orientation="vertical"
-        android:padding="28dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
         android:layout_marginTop="24dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="#FF2E7D32"
-        android:elevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_header">
-
-        <TextView
-            android:id="@+id/text_current_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="进行中"
-            android:textColor="#FFA5D6A7"
-            android:textSize="26sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/text_current_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="无会议"
-            android:textColor="#FFFFFFFF"
-            android:textSize="68sp"
-            android:textStyle="bold" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_header"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
-            android:id="@+id/layout_current_details"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/layout_left"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
             android:orientation="vertical"
-            android:layout_marginTop="20dp">
+            android:paddingStart="16dp"
+            android:paddingEnd="8dp">
 
             <LinearLayout
+                android:id="@+id/layout_current_meeting_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:minHeight="300dp"
+                android:orientation="vertical"
+                android:padding="28dp"
+                android:background="#FF2E7D32"
+                android:elevation="8dp">
 
                 <TextView
-                    android:id="@+id/text_current_time"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/text_current_title"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="17:00 - 17:30"
-                    android:textColor="#FFE8F5E9"
-                    android:textSize="30sp" />
-
-                <TextView
-                    android:id="@+id/text_current_remaining"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="剩余 10分钟"
-                    android:textColor="#FFE8F5E9"
-                    android:textSize="30sp"
-                    android:layout_marginStart="16dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="12dp">
-
-                <TextView
-                    android:id="@+id/text_current_reserver"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="预订人: 戴印丽"
+                    android:text="进行中"
                     android:textColor="#FFA5D6A7"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/text_current_department"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="总经理办公室"
-                    android:textColor="#FFA5D6A7"
-                    android:textSize="24sp"
-                    android:layout_marginStart="16dp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/text_no_meeting_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="会议室空闲中"
-            android:textColor="#FFB0C4DE"
-            android:textSize="52sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:visibility="gone" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_next_meeting_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="200dp"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="#FF2C4A6D"
-        android:elevation="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_current_meeting_container">
-
-        <TextView
-            android:id="@+id/text_next_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="下一场会议"
-            android:textColor="#FFB0C4DE"
-            android:textSize="22sp" />
-
-        <LinearLayout
-            android:id="@+id/layout_next_details"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="12dp">
-
-            <TextView
-                android:id="@+id/text_next_status"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="未来30分钟有会议"
-                android:textColor="#FF81C784"
-                android:textSize="44sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="12dp">
-
-                <TextView
-                    android:id="@+id/text_next_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="18:00 - 18:30"
-                    android:textColor="#FFE8F5E9"
-                    android:textSize="26sp" />
-
-                <TextView
-                    android:id="@+id/text_next_minutes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="30分钟后"
-                    android:textColor="#FF81C784"
                     android:textSize="26sp"
-                    android:layout_marginStart="16dp" />
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_current_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="无会议"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="68sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/layout_current_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text_current_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="17:00 - 17:30"
+                            android:textColor="#FFE8F5E9"
+                            android:textSize="30sp" />
+
+                        <TextView
+                            android:id="@+id/text_current_remaining"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="剩余 10分钟"
+                            android:textColor="#FFE8F5E9"
+                            android:textSize="30sp"
+                            android:layout_marginStart="16dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp">
+
+                        <TextView
+                            android:id="@+id/text_current_reserver"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="预订人: 戴印丽"
+                            android:textColor="#FFA5D6A7"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/text_current_department"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="总经理办公室"
+                            android:textColor="#FFA5D6A7"
+                            android:textSize="24sp"
+                            android:layout_marginStart="16dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/text_no_meeting_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="会议室空闲中"
+                    android:textColor="#FFB0C4DE"
+                    android:textSize="52sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout_next_meeting_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:minHeight="200dp"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:layout_marginTop="16dp"
+                android:background="#FF2C4A6D"
+                android:elevation="4dp">
 
                 <TextView
-                    android:id="@+id/text_next_reserver"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/text_next_title"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="预订人: 张三"
-                    android:textColor="#FFA5D6A7"
+                    android:text="下一场会议"
+                    android:textColor="#FFB0C4DE"
                     android:textSize="22sp" />
 
-                <TextView
-                    android:id="@+id/text_next_department"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/layout_next_details"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="技术部"
-                    android:textColor="#FFA5D6A7"
-                    android:textSize="22sp"
-                    android:layout_marginStart="16dp" />
+                    android:orientation="vertical"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:id="@+id/text_next_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="未来30分钟有会议"
+                        android:textColor="#FF81C784"
+                        android:textSize="44sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp">
+
+                        <TextView
+                            android:id="@+id/text_next_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="18:00 - 18:30"
+                            android:textColor="#FFE8F5E9"
+                            android:textSize="26sp" />
+
+                        <TextView
+                            android:id="@+id/text_next_minutes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="30分钟后"
+                            android:textColor="#FF81C784"
+                            android:textSize="26sp"
+                            android:layout_marginStart="16dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:id="@+id/text_next_reserver"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="预订人: 张三"
+                            android:textColor="#FFA5D6A7"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/text_next_department"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="技术部"
+                            android:textColor="#FFA5D6A7"
+                            android:textSize="22sp"
+                            android:layout_marginStart="16dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/text_next_empty_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="暂无安排"
+                    android:textColor="#FF6B8DAE"
+                    android:textSize="36sp"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/text_next_empty_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="暂无安排"
-            android:textColor="#FF6B8DAE"
-            android:textSize="36sp"
-            android:layout_marginTop="12dp"
-            android:visibility="gone" />
+        <LinearLayout
+            android:id="@+id/layout_right"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:background="#FF2C4A6D">
+
+                <TextView
+                    android:id="@+id/text_schedule_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="今日日程"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_schedule_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="共 0 场会议"
+                    android:textColor="#FFB0C4DE"
+                    android:textSize="18sp"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_meeting_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
 
     </LinearLayout>
 
