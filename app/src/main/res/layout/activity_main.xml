@@ -28,12 +28,12 @@
 
             <ImageView
                 android:id="@+id/image_logo"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/logo"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginEnd="12dp"
                 android:scaleType="fitCenter"
-                android:adjustViewBounds="true"
-                android:layout_marginEnd="12dp" />
+                android:src="@drawable/logo" />
+                <!-- 移除了 adjustViewBounds="true" -->
 
             <TextView
                 android:id="@+id/text_system_name"
@@ -129,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:text="进行中"
                     android:textColor="#FFA5D6A7"
-                    android:textSize="26sp"
+                    android:textSize="60sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -139,8 +139,8 @@
                     android:layout_marginTop="16dp"
                     android:text="无会议"
                     android:textColor="#FFFFFFFF"
-                    android:textSize="68sp"
-                    android:textStyle="bold" />
+                    android:textSize="28sp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/text_current_topic"
@@ -149,7 +149,7 @@
                     android:layout_marginTop="12dp"
                     android:text="会议主题"
                     android:textColor="#FFE8F5E9"
-                    android:textSize="36sp"
+                    android:textSize="50sp"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -357,7 +357,10 @@
                     android:textColor="#FFFFFFFF"
                     android:textSize="28sp"
                     android:textStyle="bold" />
+                
+                <!--
 
+                android:visibility="gone"
                 <TextView
                     android:id="@+id/text_schedule_count"
                     android:layout_width="match_parent"
@@ -365,10 +368,10 @@
                     android:text="共 0 场会议"
                     android:textColor="#FFB0C4DE"
                     android:textSize="18sp"
-                    android:layout_marginTop="4dp" />
+                    android:layout_marginTop="4dp" /> -->
 
             </LinearLayout>
-
+<!--
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -388,7 +391,7 @@
 
                 </LinearLayout>
 
-            </ScrollView>
+            </ScrollView>  -->
 
         </LinearLayout>
 

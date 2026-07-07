@@ -64,7 +64,8 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(com.example.meetroom.viewmodel.RoomDisplayViewModel::class.java)
         bindViews()
-        setupRecyclerView()
+        //main
+//        setupRecyclerView()
         setupObservers()
         startTimeUpdate()
     }
@@ -102,8 +103,9 @@ class MainActivity : AppCompatActivity() {
         textNextEmptyStatus = findViewById(R.id.text_next_empty_status)
         textError = findViewById(R.id.text_error)
         progressLoading = findViewById(R.id.progress_loading)
-        textScheduleCount = findViewById(R.id.text_schedule_count)
-        recyclerMeetingList = findViewById(R.id.recycler_meeting_list)
+        //main
+//        textScheduleCount = findViewById(R.id.text_schedule_count)
+//        recyclerMeetingList = findViewById(R.id.recycler_meeting_list)
 
         textCurrentTime = findViewById(R.id.text_current_time)
         textCurrentRemaining = findViewById(R.id.text_current_remaining)
@@ -118,12 +120,12 @@ class MainActivity : AppCompatActivity() {
         textNextDepartment = findViewById(R.id.text_next_department)
         textNextTopic = findViewById(R.id.text_next_topic)
     }
-
-    private fun setupRecyclerView() {
-        meetingListAdapter = MeetingListAdapter()
-        recyclerMeetingList.layoutManager = LinearLayoutManager(this)
-        recyclerMeetingList.adapter = meetingListAdapter
-    }
+// main
+//    private fun setupRecyclerView() {
+//        meetingListAdapter = MeetingListAdapter()
+//        recyclerMeetingList.layoutManager = LinearLayoutManager(this)
+//        recyclerMeetingList.adapter = meetingListAdapter
+//    }
 
     private fun setupObservers() {
         viewModel.roomName.observe(this) {
@@ -139,7 +141,7 @@ class MainActivity : AppCompatActivity() {
                 layoutCurrentMeetingContainer.setBackgroundColor(0xFF2E7D32.toInt())
                 updateCurrentMeetingUI(meeting)
             } else {
-                textCurrentTitle.visibility = View.VISIBLE
+                textCurrentTitle.visibility = View.GONE
                 textCurrentStatus.visibility = View.GONE
                 layoutCurrentDetails.visibility = View.GONE
                 textNoMeetingStatus.visibility = View.VISIBLE
@@ -158,10 +160,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.meetingList.observe(this) { meetings ->
-            meetingListAdapter.setMeetings(meetings)
-            textScheduleCount.text = "共 ${meetings.size} 场会议"
-        }
+        // main
+//        viewModel.meetingList.observe(this) { meetings ->
+//            meetingListAdapter.setMeetings(meetings)
+//            textScheduleCount.text = "共 ${meetings.size} 场会议"
+//        }
 
         viewModel.loading.observe(this) {
             progressLoading.visibility = if (it) View.VISIBLE else View.GONE
